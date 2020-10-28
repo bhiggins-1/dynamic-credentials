@@ -1,0 +1,24 @@
+[
+    {
+        "isInactive": false,
+        "companyName": "MuleSoft",
+        "internalId": "7887",
+        "email": "bryan.higgins@mulesoft.com",
+        "customFieldList": {
+            "customField": [
+                {
+                    "DateCustomFieldRef__custentity_esc_last_modified_date": "2020-06-17T00:00:00"
+                }
+            ]
+        },
+        "entityId": "MuleSoft",
+        "stage": "PROSPECT",
+        "entityStatus": {
+            "externalId": null,
+            "type": null,
+            "internalId": "13456",
+            "name": "CUSTOMER-Closed Won"
+        },
+        "defaultAddress": "MuleSoft<br>415 Mission St<br>San Francisco CA 94105<br>United States"
+    }
+]

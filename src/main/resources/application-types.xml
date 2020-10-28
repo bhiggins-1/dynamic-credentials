@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="Company_Name" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
+    <types:type name="netsuiteCustomer" format="json">
+      <types:shape format="weave" example="examples/netsuiteCustomer.json"><![CDATA[%dw 2.0
+
+type netsuiteCustomer = Array<{|  isInactive: Boolean,   companyName: String,   internalId: String,   email: String,   customFieldList: {| customField: Array<{| DateCustomFieldRef__custentity_esc_last_modified_date: String |}> |}, 
+  entityId: String, 
+  stage: String, 
+  entityStatus: {|
+    externalId: Null, 
+    "type": Null, 
+    internalId: String, 
+    name: String
+  |}, 
+  defaultAddress: String
+|}> {"example": "[{\\\"isInactive\\\":false,\\\"companyName\\\":\\\"MuleSoft\\\",\\\"internalId\\\":\\\"7887\\\",\\\"email\\\":\\\"bryan.higgins@mulesoft.com\\\",\\\"customFieldList\\\":{\\\"customField\\\":[{\\\"DateCustomFieldRef__custentity_esc_last_modified_date\\\":\\\"2020-06-17T00:00:00\\\"}]},\\\"entityId\\\":\\\"MuleSoft\\\",\\\"stage\\\":\\\"PROSPECT\\\",\\\"entityStatus\\\":{\\\"externalId\\\":null,\\\"type\\\":null,\\\"internalId\\\":\\\"13456\\\",\\\"name\\\":\\\"CUSTOMER-Closed Won\\\"},\\\"defaultAddress\\\":\\\"MuleSoft<br>415 Mission St<br>San Francisco CA 94105<br>United States\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#7bed28a5-3b1e-4403-ba55-ff09392d3fa6">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="netsuiteCustomer"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
